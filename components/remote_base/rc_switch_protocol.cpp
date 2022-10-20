@@ -63,6 +63,7 @@ void RCSwitchBase::transmit(RemoteTransmitData *dst, uint64_t code, uint8_t len)
       this->zero(dst);
     }
   }
+  this->sync(dst);
 }
 
 bool RCSwitchBase::expect_one(RemoteReceiveData &src) const {
