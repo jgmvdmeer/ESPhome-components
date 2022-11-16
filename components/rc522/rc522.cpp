@@ -111,7 +111,9 @@ void RC522::dump_config() {
   LOG_PIN("  RESET Pin: ", this->reset_pin_);
 
   LOG_UPDATE_INTERVAL(this);
-
+  
+  pcd_write_register(RF_CFG_REG, 0x7F);
+  ESP_LOGCONFIG(TAG, "RC522,redo sensitivity");
   for (auto *child : this->binary_sensors_) {
     LOG_BINARY_SENSOR("  ", "Tag", child);
   }
